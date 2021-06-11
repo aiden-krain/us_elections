@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kosugi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700&display=swap');
+
+body {
+    font-family: monospace;
+    display: flex;
+    background-color: rgb(238, 232, 209);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.commentary {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commentary::before {
+    content: '';
+    width: 5rem;
+    border-top: 3px solid #15425f;
+    opacity: 0.5;
+}
+
+h1 {
+    font-size:  60px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    line-height:1.1em;
+    margin-top: 0px;
+    width: 60%;
+    font-family: "Domine";
+}
+
+h2 {
+    font-size: 35px;
+    text-align: center;
+    width: 50%;
+    font-family: "Domine";
+}
+
+p {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 1.5em;
+    font-family: "Domine";
+}
+
+strong {
+    color: rgb(245, 155, 155);
+}
+
+a {
+    color:  rgb(231, 60, 60);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.categoryLegend {
+    font-family: "Domine";
+    font-size: 14px;
+}
+
+.butCategoryLegend {
+    font-family: "Domine";
+    font-size: 14px;
+}
+
+.label {
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: "Domine";
+}
+
+.labeltitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: "Domine";
+}
+
+#tooltip {
+    position: absolute;
+    display: none;
+    background: rgba(0, 0, 0, .7);
+    border-radius: 3px;
+    box-shadow: -3px 3px 15px #939393;
+    color: white;
+    padding: 6px;
+    font-family: "Merriweather";
+    font-size: 1.1em;
+    max-width: 400px;
+    z-index: 100;
+}
+
+circle:hover {
+    cursor: pointer;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    background: none;
+    font-size:1.5em;
+    font-family: monospace;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+}
+
+button:focus {
+    outline: none;
+    border: none;
+}
+
+.selected_button {
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+select {
+    width: 110px;
+    height: 40px;
+    font-size: 20px;
+}
+
+select:focus {
+    outline: none;
+    border: none;
+}
+
+path.arc {
+    opacity: 0.9;
+    transition: opacity 0.5s;
+  }
+  
+path.arc:hover {
+    opacity: 0.7;
+  }
+  
+.axis line, .axis circle  {
+    stroke: #cccccc;
+    stroke-width: 1px
+  }
+  
+.axis circle {
+    fill: none;
+  }
+  
+.r.axis text {
+    text-anchor: end
+  }
+

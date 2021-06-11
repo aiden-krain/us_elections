@@ -1,0 +1,261 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_final.css">
+    <script src = 'd3.js'></script>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js'></script>
+
+    <meta property='og:title' content='Factors in US Elections'/>
+    <meta property='og:image' content=''/>
+    <meta property='og:description' content='This data visualisation is an interactive, scrollable story of the factors that influence US presidential elections.'/>
+    <meta property='og:url' content=''/>
+
+
+    <title>Factors in US Elections</title>
+    <script src = 'map.js'></script>
+    <script src = 'bubble.js'></script>
+    <script src = 'bars.js'></script>
+    <script src = 'waffle.js'></script>
+    <script src = 'butterfly.js'></script>
+
+</head>
+
+
+<body>
+    <body>
+        <div id="tooltip"></div>
+        <br><h1>
+        <h1>The Factors that Influence the US Presidential Elections</h1>
+        
+        
+        <div class = 'commentary'>
+            <p>FIT5147: Data Visualisation Project</p>
+            <p>by Aiden Krain</p>
+            
+            <hr>
+            <h2>
+                The Historical Context
+            </h2>
+            <p>
+                The US Presidential elections are a very important event occurring every four years. Likened to the olympics
+                of politics, the outcome of a US presidential election is important for not only the United States but for 
+                the entire world. The US is a global superpower, therefore the elected president holds superpowers that can 
+                change the course of history forever. Join me on this journey through the last six elections and the factors
+                that influenced them.
+                <br><br>
+                Note: If you are not already aware, many of the following visualisations are coloured red and blue.
+                These colours correspond to the colours of the two major political parties in the United States. Blue represents the Democrats. 
+                Red represents the Republicans.
+                <br><br>
+                Below you will find a map of the United States that displays the winning party for each state in each of the last six elections.
+                This map is to simply provide some context to how US citizens have voted over the last 20 years.
+                <br><br>
+                Select a year to get started! Hover over a state to find out a little more about the winning party.
+            </p>
+            Select Year: <select name="" id="selectYear" onChange = 'drawMap(this.value)'>
+                <option value="2000">2000</option>
+                <option value="2004">2004</option>
+                <option value="2008">2008</option>
+                <option value="2012">2012</option>
+                <option value="2016">2016</option>
+                <option value="2020">2020</option>
+            </select><br>
+        </div>
+    
+        <svg id = 'us_map' width = '1200' height = '600'></svg>
+    
+        <div class = 'commentary'>
+            <p>
+                Comparing the maps over each election, it seems that elections are won by securing swing states throughout the 
+                middle of America. Key states including Pensylvania, Georgia and Nevada play key roles in delivering a 
+                presidential candidate a win in a given election.
+                <br><br>
+                This map provides the context to explain the factors in the following visualisations.
+                <br><br>
+            </p>
+    
+            <h2>
+                How do Events Around the World Impact the Elections?
+            </h2>
+            <p>
+                Now we have the context surrounding the US Presidential elections of the last 20 years, we can dive deeper into the factors that may influence the outcome.
+                One such factor are events that occur around the world and their impact on the citizens of the United States.
+                <br><br>
+                Events around the world have significant impacts on society and its psyche at a particular time.
+                Needless to say, negative world events, such as terrorist attacks, instill feelings of fear, anxiety and a willingness
+                to be protected amidst chaos. Questions surrounding how citizens vote during this time is explored below.
+                <br><br>
+                Click the button below to see a plot of the most important world events occurring over the last 23 years. 
+                The top five categories of health, economical, political, science and technology, as well as conflict are shown.
+                <br><br>
+                Hover over an event to find out what happened!
+            </p>
+            <button onclick = 'drawBubble()' id = 'bubble_button'> 
+                Show Bubbles!
+            </button>
+            <br><br><br><br>
+        </div>
+    
+        <svg id = 'bubble_chart' width = '1200' height = '700' ></svg>
+    
+        <div class="commentary">
+            <p>
+                In order to answer the above questions, events have been scored by their relevance and positivity.
+                <br><br>
+                The data is displayed in a grid-like plot where the relevance of the event to the US elections is displayed on the x-axis
+                and the positivity score (how good the event was) is shown on the y-axis. 
+                <br><br>
+                Therefore, the most relevant but heinous events are found in the bottom right corner while the most positive events 
+                are seen in the top right. 
+                <br><br>
+                Continue on to see the average positivity score over each election as well as the average scores seen when the 
+                Democrat or Republican parties have one the election.
+            </p>
+        </div>
+
+            <div>
+                <button onclick = 'update(scores)' class = 'selected_button' id = 'score_button'>Score Across All Elections</button>
+                <button onclick = 'update(mean)' id = 'avgscore_button'>Average Score Over Elections</button>
+            </div>
+            <svg id = 'bar_charts' width = '1200' height = '700'></svg>
+
+
+    
+        <div class="commentary">
+            <p>
+                The positivity score here is now a combination of the relevance to the United States and the positivity of the event.
+                This has now been averaged for each election year, and then for each party.
+                <br><br>
+                It is quite clear that when the Republican party has won the election more "bad" things have happened in the years leading 
+                up to the election. The tendency to vote Republican in times of world distress is likely due to a range of factors, 
+                potentially stemming from fear and distrust in the more progressive Democrat party. 
+                <br><br>
+                One thing is for certain, it seems the Republican party feeds on the fear of the times. 
+            </p>
+    
+            <h2>Who Turns Out to the Elections?</h2>
+    
+            <p>
+                Another important factor for US Presidential elections is the amount of people and the demographic of those
+                who turnout to vote.
+                <br><br>
+                Unlike in Australia, voting in America is optional. Therefore, the final turnout to an election can significantly
+                influence the result.
+                <br><br>
+                The following plot is a line chart that demonstrates the total turnout rate over the last six elections.
+                The datapoints are coloured by the winning party of that election year.
+                Select a year to reveal a radial bar chart of the turnout rate of different age groups in that election.
+                <br><br>
+                You can then change the group at the top of the visualisation to switch the turnout rates to education or
+                ethnicity.
+            </p>
+    
+            Group: <select name="" id="selectGroup" onChange = 'updateRadial(this.value)'>
+                <option value="Age">Age</option>
+                <option value="Education">Education</option>
+                <option value="Ethnicity">Ethnicity</option>
+                </select>
+        </div>
+    
+        <svg id = 'line_chart' width = '1200' height = '500'></svg>
+        <svg id = 'radial_chart' width = '1200' height = '500'></svg>
+
+        <div class="commentary">
+            <p>
+                Looking at the initial line graph we can see that in general the higher the turnout rate the more likely the 
+                Democrat party will win the election. This comes with the exception of the 2012 election in which there was
+                a significantly decreased turnout rate for that year.
+                <br><br>
+                It is difficult to analyse all groups of all elections in this visualisation. However a few of key points are 
+                easily seen from the data. Firstly, when younger citizens vote in an election, the Democrat party generally wins. 
+                Secondly, when a larger proportion of less educated white people vote, the election swings toward the Republican party.
+                Lastly, Hispanic and Non-hispanic black people tend to vote more Democratic.
+                <br><br>
+                Explore the data yourself to find your own conclusions in the data!
+                <br><br>
+            </p>
+
+            <h2>Does More Money Mean More Votes?</h2>
+            
+            <p>
+                Perhaps the most important factor in elections, money can be the difference between a successful or
+                unsuccessful campaign. 
+                <br><br>
+                The tornado chart below demonstrates the total spending over the last six elections seperated by each party.
+                The winning party is outlined in a gold stroke.
+                <br><br>
+                Hover over the bars to see more information relating to the election!
+                <br><br>
+            </p>
+
+            <button onclick = 'drawButterfly()' id = 'but_button'> 
+                    Show Me The Money!
+                </button>
+
+        </div>
+
+            <svg id = 'butterfly_chart' width = '1200' height = '700'></svg>
+    
+        <div class="commentary">
+            <p>
+               Well its true what they say, "money talks". Five out of the last six elections have been won by the party that 
+               spent the most money. And the amount of spending has rapidly increased in the last 20 years! 
+                <br><br>
+                Looks like if you want to win an election you may want to invest in a little fundraising. 
+            </p>
+    
+            <h2>Conclusion</h2>
+    
+            <p>
+                I hope you had as much fun on this visual journey as I did creating it. Of course, the elections are not exclusively
+                decided on the factors described on this page. In reality, the outcome of an election is probably a complex 
+                amalgamation of many factors, all combining together to deliver a candidate presidency. Feel free to move back
+                through the page to play with any of the visualisations. Try not to break them :).
+            </p>
+            <br><br>
+        </div>
+
+        <div class="commentary">
+            <br><br>
+            <h2>Data Sources</h2>
+    
+            <p>
+                Below are the data sources I used to create my visualisations.
+                <br><br>
+                The world events data was gained from a variety of sources and scored myself.
+                <br><br>
+                The number of presidential votes won by each running candidate for each state from 1976 to 2020 can be found on the
+                <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX">Harvard Dataverse</a>.
+                <br><br>
+                The turnout rates for age, race/ethnicity and education from 2000 to 2018 can be found
+                <a href="http://www.electproject.org/home/voter-turnout/voter-turnout-data">here</a>.
+                <br><br>
+                Lastly, all the financial related information within the visualisation has been sourced from
+                <a href="https://www.opensecrets.org/">Open Secrets</a>,
+                an open-source organisation that calculates and releases the funding for all presidential candidates, 
+                among other financial releases.
+            </p>
+            <br><br>
+            <h2>Acknowledgements</h2>
+    
+            <p>
+                Below are the sources I used to create my visualisations.
+                <br><br>
+                The template of the page was inspired by Cuthbert Chow's page on presenting a visualisation of
+                <a href="https://cuthchow.github.io/the-office-visualisation/">The Office</a>.
+                <br><br>
+                The map was created with help from Michelle Tandra's <a href="http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922">US map</a>
+                visualisation.
+                <br><br>
+                Lastly, the radial bar charts could not have been created without Anton Orlov's <a href="https://gist.github.com/AntonOrlov/6b42d8676943cc933f48a43a7c7e5b6c">Radial Bar Chart</a> 
+                template.
+            </p>
+                
+        </div>
+        
+    </body>
+    
+
+</body>
+</html>
